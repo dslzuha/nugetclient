@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0">
+  <!-- Version -->
+  <PropertyGroup>
+    <IsEscrowMode>false</IsEscrowMode>
+    <MajorNuGetVersion Condition="'$(MajorNuGetVersion)' == ''">5</MajorNuGetVersion>
+    <MinorNuGetVersion Condition="'$(MinorNuGetVersion)' == ''">0</MinorNuGetVersion>
+    <PatchNuGetVersion Condition="'$(PatchNuGetVersion)' == ''">0</PatchNuGetVersion>
+    <SemanticVersion Condition=" '$(SemanticVersion)' == '' ">$(MajorNuGetVersion).$(MinorNuGetVersion).$(PatchNuGetVersion)</SemanticVersion>
+    <VsTargetBranch>lab/d16.$(MinorNuGetVersion)stg</VsTargetBranch>
+    <VsTargetBranch Condition="'$(IsEscrowMode)' == 'true'">rel/d16.$(MinorNuGetVersion)</VsTargetBranch>
+    <CliTargetBranch1 Condition="'$(OverrideCliTargetBranch1)' != ''">$(OverrideCliTargetBranch1)</CliTargetBranch1>
+    <CliTargetBranch1 Condition="'$(OverrideCliTargetBranch1)' == ''">release/2.2.2xx</CliTargetBranch1>
+    <CliTargetBranch2 Condition="'$(OverrideCliTargetBranch2)' != ''">$(OverrideCliTargetBranch2)</CliTargetBranch2>
+    <CliTargetBranch2 Condition="'$(OverrideCliTargetBranch2)' == ''">release/2.1.6xx</CliTargetBranch2>
+    <SdkTargetBranch1 Condition="'$(OverrideCliTargetBranch1)' != ''">$(OverrideCliTargetBranch1)</SdkTargetBranch1>
+    <SdkTargetBranch1 Condition="'$(OverrideCliTargetBranch1)' == ''">release/2.2.2xx</SdkTargetBranch1>
+    <SdkTargetBranch2 Condition="'$(OverrideCliTargetBranch2)' != ''">$(OverrideCliTargetBranch2)</SdkTargetBranch2>
+    <SdkTargetBranch2 Condition="'$(OverrideCliTargetBranch2)' == ''">release/2.1.6xx</SdkTargetBranch2>
+    <!-- We need to update this netcoreassembly build number with every milestone to workaround any breaking api
+    changes we might have made-->
+    <NetCoreAssemblyBuildNumber Condition=" '$(NetCoreAssemblyBuildNumber)' == '' ">1</NetCoreAssemblyBuildNumber>
+    <ReleaseLabel Condition=" '$(ReleaseLabel)' == '' ">preview$(NetCoreAssemblyBuildNumber)</ReleaseLabel>
+  </PropertyGroup>
+
+  <!-- Dependency versions -->
+  <PropertyGroup>
+    <NewtonsoftJsonVersionCore>9.0.1</NewtonsoftJsonVersionCore>
+    <XunitVersion>2.3.1</XunitVersion>
+    <TestSDKVersion>15.5.0</TestSDKVersion>
+    <MoqVersion>4.7.145</MoqVersion>
+    <FluentAssertionsVersion>4.19.4</FluentAssertionsVersion>
+    <MicrosoftBuildPackageVersion>15.1.1012</MicrosoftBuildPackageVersion>
+  </PropertyGroup>
+
+  <!-- Config -->
+  <PropertyGroup>
+    <RepositoryName>NuGet</RepositoryName>
+  </PropertyGroup>
+
+  <!-- Nuspec defaults -->
+  <PropertyGroup>
+    <Authors>Microsoft</Authors>
+    <PackageProjectUrl>https://aka.ms/nugetprj</PackageProjectUrl>
+    <PackageLicenseUrl>https://aka.ms/nugetlicense</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/NuGet/NuGet.Client</RepositoryUrl>
+    <PackageTags>nuget</PackageTags>
+    <Description>NuGet client library.</Description>
+    <Copyright>&#169; Microsoft Corporation. All rights reserved.</Copyright>
+    <Serviceable>true</Serviceable>
+    <PackageIconUrl>https://raw.githubusercontent.com/NuGet/Media/master/Images/MainLogo/256x256/nuget_256.png</PackageIconUrl>
+  </PropertyGroup>
+
+  <Target Name="GetSemanticVersion">
+    <Message Text="$(SemanticVersion)" Importance="High"/>
+  </Target>
+  <Target Name="GetVsTargetBranch">
+    <Message Text="$(VsTargetBranch)" Importance="High"/>
+  </Target>
+  <Target Name="GetCliTargetBranch1">
+    <Message Text="$(CliTargetBranch1)" Importance="High"/>
+  </Target>
+  <Target Name="GetCliTargetBranch2">
+    <Message Text="$(CliTargetBranch2)" Importance="High"/>
+  </Target>
+  <Target Name="GetSdkTargetBranch1">
+    <Message Text="$(SdkTargetBranch1)" Importance="High"/>
+  </Target>
+  <Target Name="GetSdkTargetBranch2">
+    <Message Text="$(SdkTargetBranch2)" Importance="High"/>
+  </Target>
+</Project>
