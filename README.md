@@ -1,4 +1,4 @@
-﻿![NuGet logo](https://raw.githubusercontent.com/NuGet/Home/dev/resources/nuget.png)
+![NuGet logo](https://raw.githubusercontent.com/NuGet/Home/dev/resources/nuget.png)
 
 -----
 
@@ -27,9 +27,9 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ### Steps to build NuGet client tools
 
-1. Clone [NuGet/NuGet.Client](https://github.com/nuget/nuget.client) repository
+1. Clone [dslzuha/nugetclient](https://github.com/dslzuha/nugetclient) repository
 
-    `git clone https://github.com/NuGet/NuGet.Client`
+    `git clone https://github.com/dslzuha/nugetclient`
 
 2. Start PowerShell. CD into the cloned repository directory.
 
