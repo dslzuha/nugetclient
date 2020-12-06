@@ -1,0 +1,29 @@
+﻿<Project>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), 'README.md'))\build\common.props" />
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <PropertyGroup>
+    <PackageId>NuGet.SolutionRestoreManager.Interop</PackageId>
+    <TargetFramework>net46</TargetFramework>
+    <Shipping>true</Shipping>
+    <PackProject>true</PackProject>
+    <IncludeInVsix>true</IncludeInVsix>
+    <authors>Microsoft</authors>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/NuGet/NuGet.Client/dev/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl	>https://github.com/NuGet/NuGet.Client</PackageProjectUrl	>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <AssemblyDescription>APIs for invoking NuGet Restore Manager in Visual Studio.</AssemblyDescription>
+    <Description>APIs for invoking NuGet Restore Manager in Visual Studio.</Description>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="NuGet.SolutionRestoreManager.Interop.targets">
+      <PackagePath>build</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+  </ItemGroup>
+
+  <Import Project="$(BuildCommonDirectory)common.targets"/>
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+</Project>
