@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>NuGet.CommandLine</id>
+    <version>4.3.1</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>https://aka.ms/nugetlicense</licenseUrl>
+    <projectUrl>https://aka.ms/nugetprj</projectUrl>
+    <copyright>&#169; Microsoft Corporation. All rights reserved.</copyright>
+    <description>NuGet Command Line Tool</description>
+    <developmentDependency>true</developmentDependency>
+  </metadata>
+  <files>
+      <file src="NuGet.exe" target="tools" />
+      <file src="NuGet.pdb" target="tools" />
+  </files>
+</package>
